@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --font-default:
+    -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+@layer base {
+  html,
+  body {
+    @apply font-default bg-gray-50 antialiased;
+  }
+}
+
+@layer components {
+  button {
+    cursor: pointer;
+  }
+}
