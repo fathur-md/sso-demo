@@ -46,7 +46,7 @@ export const Form = () => {
   };
 
   return (
-    <div className="mx-auto max-w-xs">
+    <div className="mx-auto max-w-xs pt-2">
       {/* ALERT TRANSITION */}
       <Transition
         show={alert}

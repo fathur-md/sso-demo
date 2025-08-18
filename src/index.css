@@ -8,7 +8,7 @@
 @layer base {
   html,
   body {
-    @apply font-default bg-gray-50 antialiased;
+    @apply font-default bg-blue-900 antialiased;
   }
 }
 
