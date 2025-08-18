@@ -15,7 +15,7 @@ const data = [
 
 export const AnnoucementList = () => {
   return (
-    <div className="overflow-y-scroll rounded-lg p-4 shadow-[0_0_10px] max-lg:shadow-gray-400/40">
+    <div className="overflow-y-scroll rounded-lg p-4 shadow-lg max-lg:shadow-[0_0_10px] max-lg:shadow-gray-400/40">
       <div>
         {data.map((item, index) => (
           <div key={index} className="space-y-4">
