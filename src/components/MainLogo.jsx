@@ -3,7 +3,7 @@ export const MainLogo = () => {
     <img
       src="https://sso.mercubuana-yogya.ac.id/build/assets/images/logo.png"
       alt="logo"
-      className="mx-auto h-full w-auto object-contain"
+      className="mx-auto h-32 w-auto object-contain"
     />
   );
 };
