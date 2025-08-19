@@ -40,7 +40,7 @@ export const LoginForm = () => {
   };
 
   return (
-    <div className="mx-auto max-w-sm pt-5 select-none">
+    <div className="mx-auto w-full max-w-sm pt-5 select-none">
       <Transition
         show={alert}
         enter="transition-all duration-300 ease-out"
