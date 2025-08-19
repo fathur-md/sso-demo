@@ -1,7 +1,7 @@
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
-import { Dashboard } from "@pages/Dashboard";
 import { Login } from "@pages/Login";
 import { fakeAuth } from "@utils/auth";
+import { Dashboard } from "@pages/dashboard/Dashboard";
 
 // Protected route wrapper
 function ProtectedRoute({ children }) {

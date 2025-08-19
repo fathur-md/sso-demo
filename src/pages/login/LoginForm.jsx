@@ -1,4 +1,5 @@
 import { Transition } from "@headlessui/react";
+import { fakeAuth } from "@utils/auth";
 import { AlertTriangle, Eye, EyeOff, Lock, User, X } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
