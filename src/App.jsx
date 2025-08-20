@@ -1,8 +1,6 @@
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Login } from "@pages/Login";
 import { fakeAuth } from "@utils/auth";
-
-import { Layout } from "@layouts/Layout";
 import { Dashboard } from "@pages/Dashboard";
 
 // Protected route wrapper
@@ -19,9 +17,7 @@ export default function App() {
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <Layout>
-                <Dashboard />
-              </Layout>
+              <Dashboard />
             </ProtectedRoute>
           }
         />

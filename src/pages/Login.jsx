@@ -1,6 +1,5 @@
 import { LoginSection } from "@components/login/LoginSection";
 import { NewsSection } from "@components/login/NewsSection";
-import { MainLogo } from "@components/MainLogo";
 
 export const Login = () => {
   return (

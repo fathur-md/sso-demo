@@ -1,4 +1,4 @@
-import { loginData } from "@utils/mockupData";
+import { loginData } from "@utils/mockupData.jsx";
 
 export const MainLogo = ({ color = "default" }) => {
   const logoSrc =

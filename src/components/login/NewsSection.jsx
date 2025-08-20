@@ -1,4 +1,4 @@
-import { pengumuman } from "@utils/mockupData";
+import { pengumuman } from "@utils/mockupData.jsx";
 import { Megaphone } from "lucide-react";
 
 export const NewsSection = () => {

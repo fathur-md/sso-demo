@@ -25,12 +25,31 @@
 }
 
 @layer utilities {
-  .glass-bg {
-    @apply bg-gradient-to-b from-gray-50 via-gray-50/90 via-50% to-white/80 to-100%;
-  }
   .scroll-hide::-webkit-scrollbar {
     display: none;
     scrollbar-width: none;
     -ms-overflow-style: none;
+  }
+  .glass-bg {
+    /* @apply backdrop-blur-xl bg-[rgba(0,0,0,0)] bg-[radial-gradient(circle_at_100%_0px,rgba(255,255,255,0.85)_0px,rgba(245,245,245,0.13)_183%)]; */
+    backdrop-filter: blur(24px); /* Matches backdrop-blur-xl */
+    -webkit-backdrop-filter: blur(24px); /* For Safari */
+    background: radial-gradient(
+      circle at 100% 0px,
+      rgba(255, 255, 255, 0.85) 0px,
+      rgba(245, 245, 245, 0.13) 183%
+    );
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .glass-bg-secondary {
+    /* @apply backdrop-blur-xl bg-[rgba(0,0,0,0)] bg-[radial-gradient(circle_at_100%_0px,rgba(255,255,255,0.85)_0px,rgba(245,245,245,0.13)_183%)]; */
+    backdrop-filter: blur(14px); /* Matches backdrop-blur-xl */
+    -webkit-backdrop-filter: blur(14px); /* For Safari */
+    background: radial-gradient(
+      circle at 100% 0px,
+      rgba(255, 255, 255, 0.85) 0px,
+      rgba(245, 245, 245, 0.13) 183%
+    );
+    background-color: rgba(0, 0, 0, 0);
   }
 }
