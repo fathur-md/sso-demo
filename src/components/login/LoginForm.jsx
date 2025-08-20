@@ -51,7 +51,7 @@ export const LoginForm = () => {
         leaveFrom="opacity-100 translate-y-0 max-h-20"
         leaveTo="opacity-0 -translate-y-2 max-h-0"
       >
-        <div className="fixed top-0 right-4 bottom-auto z-[999] max-sm:inset-x-4 max-sm:m-4 sm:top-4 sm:w-xs">
+        <div className="fixed top-4 right-4 bottom-auto z-[999] w-xs max-sm:left-1/2 max-sm:-translate-x-1/2 sm:top-4">
           <div className="mb-4 flex items-center justify-between rounded-sm border-l-6 border-red-400 bg-red-200 p-3 text-sm text-red-800">
             <span className="flex items-center gap-3 select-none">
               <AlertTriangle className="size-5" />
