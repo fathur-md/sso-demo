@@ -1,12 +1,59 @@
-# React + Vite
+# SSO Student Portal Demo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a demo React app for learning and practicing:
 
-Currently, two official plugins are available:
+- ReactJS fundamentals
+- Vite setup
+- Git & GitHub workflow
+- Building a simple SSO-style student portal
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Login and dashboard pages
+- Responsive layout with Tailwind CSS
+- Routing with React Router
+- Modern icon support
+- Accessible UI components
+- Linting and formatting for code quality
+- One-command deployment to GitHub Pages
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Getting Started
+
+1. Clone this repo:
+
+   ```
+   git clone https://github.com/fathur-md/sso-demo.git
+   ```
+
+2. Install dependencies:
+
+   ```
+   npm install
+   ```
+
+3. Start the development server:
+
+   ```
+   npm run dev
+   ```
+
+## Technologies Used
+
+- React 19
+- React Router DOM
+- Tailwind CSS
+- Lucide React (icons)
+- Headless UI (accessible UI components)
+- Vite (development/build tool)
+- ESLint & Prettier (code quality)
+- gh-pages (deployment)
+
+## Purpose
+
+This project is for demo and learning purposes.  
+Feel free to explore, modify, and use it to practice your Git and React skills!
+
+## Attribution & Disclaimer
+
+All content, data, logos, images, and mockup data used in this project belong to Universitas Mercu Buana Yogyakarta.
+This project is for educational and learning purposes only and is not an official product of the university.
