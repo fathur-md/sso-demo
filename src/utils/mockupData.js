@@ -1,9 +1,19 @@
+export const loginData = {
+  logo: "https://dpm.mercubuana-yogya.ac.id/wp-content/uploads/2023/04/logo-umby-white.png",
+  title: "Portal Single Sign-On",
+  description:
+    "Mahasiswa: gunakan NIM/NIS dan kata sandi yang sama dengan SIA.",
+  hotline: "0878-1404-3252",
+  hotlineLink: "https://wa.me/6287814043252",
+  hotlineText: "Hotline : 0878-1404-3252",
+};
+
 export const pengumuman = [
   {
-    title: "Demo Sistem",
+    title: "README",
     img: null,
     content:
-      "Ini adalah demo sistem. Segala konten, logo, dan material yang ditampilkan di sini adalah milik Universitas. Untuk keperluan uji coba, silakan gunakan NIM/NIS dan password: 123",
+      "Ini adalah demo sistem. Segala konten, logo, dan material yang ditampilkan di sini adalah milik Universitas Mercu Buana Yogyakarta. NIM dan Password untuk login: 123",
     published: "2025-8-20",
   },
   {

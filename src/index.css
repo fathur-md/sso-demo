@@ -14,7 +14,7 @@
   html,
   body,
   #root {
-    @apply font-default h-full bg-gray-50 text-zinc-900 antialiased lg:bg-blue-900;
+    @apply font-default h-full bg-gray-50 text-zinc-900 antialiased;
   }
 }
 

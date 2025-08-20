@@ -105,7 +105,7 @@ export const LoginForm = () => {
         </div>
         <button
           type="submit"
-          className="w-full rounded-md bg-blue-900 p-3 font-medium text-white transition-all active:scale-95"
+          className="w-full rounded-md bg-white p-3 font-medium text-zinc-900 transition-all active:scale-95"
         >
           Login
         </button>

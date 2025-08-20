@@ -1,7 +1,14 @@
-export const MainLogo = () => {
+import { loginData } from "@utils/mockupData";
+
+export const MainLogo = ({ color = "default" }) => {
+  const logoSrc =
+    color === "white"
+      ? loginData.logo
+      : "https://sso.mercubuana-yogya.ac.id/build/assets/images/logo.png";
+
   return (
     <img
-      src="https://sso.mercubuana-yogya.ac.id/build/assets/images/logo.png"
+      src={logoSrc}
       alt="logo"
       className="mx-auto h-32 w-auto object-contain"
     />
