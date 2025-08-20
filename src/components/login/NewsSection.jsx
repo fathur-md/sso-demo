@@ -9,6 +9,7 @@ export const NewsSection = () => {
         <h1 className="text-lg font-semibold">Pengumuman</h1>
       </div>
       <div className="flex-1 overflow-hidden lg:h-[540px]">
+        {/* TODO: Add function for "Lihat selengkapnya" later */}
         <div className="h-full w-full space-y-4 rounded-lg lg:overflow-y-auto">
           {pengumuman.map((data, index) => (
             <div
