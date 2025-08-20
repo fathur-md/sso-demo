@@ -10,7 +10,7 @@ export const MainLogo = ({ color = "default" }) => {
     <img
       src={logoSrc}
       alt="logo"
-      className="mx-auto h-32 w-auto object-contain"
+      className="mx-auto h-30 w-auto object-contain"
     />
   );
 };

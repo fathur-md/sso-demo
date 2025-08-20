@@ -6,10 +6,10 @@ import { InfoIcon } from "lucide-react";
 export const LoginSection = () => {
   return (
     <div className="flex items-center">
-      <div className="max-w-sm p-4">
+      <div className="max-w-sm p-2 lg:px-6">
         <div>
           <MainLogo color="white" />
-          <h1 className="py-8 pb-10 text-center text-3xl font-semibold tracking-tight text-gray-200">
+          <h1 className="py-6 pb-8 text-center text-3xl font-semibold tracking-tight text-gray-200">
             {loginData.title}
           </h1>
           <div className="mx-auto flex max-w-sm items-center gap-3 rounded-sm border-l-6 border-gray-400 bg-gray-200 p-3 shadow-[0_0_3px] shadow-black/10">

@@ -25,7 +25,8 @@ export const LoginForm = () => {
 
     const { nim, password } = form;
     if (nim !== "123" || password !== "123") {
-      setAlert(true);
+      setAlert(false);
+      setTimeout(() => setAlert(true), 200);
       setForm({ nim: "", password: "" }); // Clear form on error
       return;
     }
@@ -50,8 +51,8 @@ export const LoginForm = () => {
         leaveFrom="opacity-100 translate-y-0 max-h-20"
         leaveTo="opacity-0 -translate-y-2 max-h-0"
       >
-        <div className="overflow-hidden">
-          <div className="mb-4 flex items-center justify-between rounded-sm border-l-6 border-red-700 bg-red-200 p-3 text-sm text-red-800">
+        <div className="fixed top-0 right-4 bottom-auto z-[999] max-sm:inset-x-4 max-sm:m-4 sm:top-4 sm:w-xs">
+          <div className="mb-4 flex items-center justify-between rounded-sm border-l-6 border-red-400 bg-red-200 p-3 text-sm text-red-800">
             <span className="flex items-center gap-3 select-none">
               <AlertTriangle className="size-5" />
               <p>NIM/NIS atau Password salah</p>
@@ -60,7 +61,7 @@ export const LoginForm = () => {
               onClick={() => setAlert(false)}
               className="flex size-6 items-center justify-center"
             >
-              <X className="size-4" />
+              <X className="size-6" />
             </button>
           </div>
         </div>
