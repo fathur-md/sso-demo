@@ -66,7 +66,7 @@ export const LoginForm = () => {
           </div>
         </div>
       </Transition>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 text-sm">
         <div className="relative">
           <User className="absolute top-1/2 left-3 size-5 -translate-y-1/2 text-gray-500" />
           <input
@@ -98,9 +98,9 @@ export const LoginForm = () => {
             className="absolute top-1/2 right-3.5 -translate-y-1/2 cursor-pointer text-gray-400"
           >
             {showPass ? (
-              <EyeOff className="size-6" />
+              <EyeOff className="size-5" />
             ) : (
-              <Eye className="size-6" />
+              <Eye className="size-5" />
             )}
           </span>
         </div>
