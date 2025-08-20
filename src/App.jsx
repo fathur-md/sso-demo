@@ -1,7 +1,9 @@
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import { Login } from "@pages/Login";
 import { fakeAuth } from "@utils/auth";
-import { Dashboard } from "@pages/dashboard/Dashboard";
+
+import { Layout } from "@layouts/Layout";
+import { Dashboard } from "@pages/Dashboard";
 
 // Protected route wrapper
 function ProtectedRoute({ children }) {
@@ -17,7 +19,9 @@ export default function App() {
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <Layout>
+                <Dashboard />
+              </Layout>
             </ProtectedRoute>
           }
         />

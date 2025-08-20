@@ -1,24 +1,32 @@
+import { LoginForm } from "@components/login/LoginForm";
 import { MainLogo } from "@components/MainLogo";
-import { LoginForm } from "@pages/login/LoginForm";
 import { InfoIcon } from "lucide-react";
 
-export const FormSection = () => {
+const mockupData = {
+  title: "Portal Single Sign-On",
+  description:
+    "Mahasiswa: gunakan NIM/NIS dan kata sandi yang sama dengan SIA.",
+  hotline: "0878-1404-3252",
+  hotlineLink: "https://wa.me/6287814043252",
+  hotlineText: "Hotline : 0878-1404-3252",
+};
+
+export const LoginSection = () => {
   return (
-    <div className="items-centerk mx-auto flex w-full p-6 select-none max-lg:max-w-xl lg:pl-3">
-      <div className="flex w-full flex-col justify-center rounded-lg bg-gradient-to-b from-gray-50 via-gray-50/90 via-50% to-white/80 to-100% p-4 backdrop-blur-sm">
+    <div className="flex h-full min-h-screen w-full items-center justify-center p-6 md:bg-white/75 md:backdrop-blur-xl">
+      <div className="max-sm:px-6">
         <div>
           <MainLogo />
-          <h1 className="py-4 text-center text-2xl font-semibold tracking-tight text-zinc-800 md:text-3xl">
-            Portal Single Sign-On
+          <h1 className="py-8 pb-10 text-center text-2xl font-semibold tracking-tight md:text-3xl">
+            {mockupData.title}
           </h1>
-          <div className="mx-auto flex max-w-sm items-center gap-3 rounded-sm border-l-6 border-blue-900 bg-blue-100/50 p-3 shadow-[0_0_3px] shadow-black/10">
+          <div className="mx-auto flex max-w-sm items-center gap-3 rounded-sm border-l-6 border-blue-900 bg-gray-50 p-3 shadow-[0_0_3px] shadow-black/10">
             <InfoIcon className="size-10 text-blue-900" />
             <p className="text-left text-sm leading-tight font-medium text-blue-900">
-              Mahasiswa: gunakan NIM/NIS dan kata sandi yang sama dengan SIA.
+              {mockupData.description}
             </p>
           </div>
         </div>
-        {/* LOGIN FORM */}
         <LoginForm />
         <div className="pt-8">
           <a href="https://wa.me/6287814043252" target="_blank">

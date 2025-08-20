@@ -5,15 +5,32 @@
     -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
 
+@theme {
+  --color-primary: #f9fafb;
+  --color-primary-dark: #373739;
+}
+
 @layer base {
   html,
-  body {
-    @apply font-default bg-blue-900 antialiased;
+  body,
+  #root {
+    @apply font-default h-full bg-gray-50 text-zinc-900 antialiased lg:bg-blue-900;
   }
 }
 
 @layer components {
   button {
     cursor: pointer;
+  }
+}
+
+@layer utilities {
+  .glass-bg {
+    @apply bg-gradient-to-b from-gray-50 via-gray-50/90 via-50% to-white/80 to-100%;
+  }
+  .scroll-hide::-webkit-scrollbar {
+    display: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 }
