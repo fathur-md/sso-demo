@@ -1,8 +1,8 @@
 import { Transition, TransitionChild } from "@headlessui/react";
 import { Megaphone } from "lucide-react";
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
-export const NewsSection = ({ data, isLoading, error }) => {
+export const NewsSection = ({ data }) => {
   const [newsOpen, setNewsOpen] = useState(false);
   const [selectedNews, setSelectedNews] = useState(null);
 
@@ -16,21 +16,20 @@ export const NewsSection = ({ data, isLoading, error }) => {
     setNewsOpen(false);
   };
 
-  if (isLoading) {
-    return (
-      <div className="flex h-full items-center justify-center">
-        <p className="text-white">Loading...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="flex h-full items-center justify-center">
-        <p className="text-red-500">Error: {error.message}</p>
-      </div>
-    );
-  }
+  useEffect(() => {
+    if (newsOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.left = "0";
+      document.body.style.right = "0";
+      return () => {
+        document.body.style.position = "";
+        document.body.style.top = "";
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [newsOpen]);
 
   return (
     <div className="mx-auto flex h-full w-full max-w-2xl flex-col gap-4 max-lg:pt-12">
@@ -40,18 +39,18 @@ export const NewsSection = ({ data, isLoading, error }) => {
       </div>
       <div className="flex-1 overflow-hidden lg:h-[540px]">
         <div className="h-full w-full space-y-4 rounded-lg lg:overflow-y-auto">
-          {data.newsSection.map((data, index) => (
+          {data?.newsSection.map((data, index) => (
             <div
               key={index}
               className="w-full space-y-3 rounded-lg bg-white/75 p-4 shadow-md"
             >
               <h2 className="md:text-md text-sm font-semibold text-zinc-900">
-                {data.title}
+                {data?.title}
               </h2>
-              {data.img && (
+              {data?.img && (
                 <img
-                  src={data.img}
-                  alt={data.title}
+                  src={data?.img}
+                  alt={data?.title}
                   className="w-full rounded-lg object-cover"
                 />
               )}
@@ -61,7 +60,7 @@ export const NewsSection = ({ data, isLoading, error }) => {
               </p>
 
               <div className="flex items-center justify-between border-t border-gray-400 pt-3 text-xs text-gray-600">
-                <span>{formatDate(data.published, { month: "short" })}</span>
+                <span>{formatDate(data?.published, { month: "short" })}</span>
                 {index > 0 && (
                   <button
                     onClick={() => openModal(data)}
@@ -88,7 +87,7 @@ export const NewsSection = ({ data, isLoading, error }) => {
             leaveTo="opacity-0"
           >
             <div
-              className="fixed inset-0 bg-blue-900 backdrop-blur-sm"
+              className="fixed inset-0 z-60 bg-blue-900 backdrop-blur-sm"
               onClick={closeModal}
             />
           </TransitionChild>
@@ -102,7 +101,7 @@ export const NewsSection = ({ data, isLoading, error }) => {
             leaveFrom="scale-100 opacity-100"
             leaveTo="scale-95 opacity-0"
           >
-            <div className="relative z-10 flex w-full max-w-5xl flex-col rounded-lg bg-white p-6 shadow-lg">
+            <div className="relative z-100 flex w-full max-w-5xl flex-col rounded-lg bg-white p-6 shadow-lg">
               <div className="flex w-full items-center justify-between overflow-y-auto rounded-lg bg-blue-900 p-2 pl-3">
                 <div className="flex items-center gap-2">
                   <Megaphone className="size-5 text-white" />
@@ -120,20 +119,20 @@ export const NewsSection = ({ data, isLoading, error }) => {
               {selectedNews && (
                 <div>
                   <h1 className="pt-4 text-lg font-semibold tracking-tight">
-                    {selectedNews.title}
+                    {selectedNews?.title}
                   </h1>
                   <p className="py-2 text-xs">
-                    {formatDate(selectedNews.published, { month: "long" })} •{" "}
-                    <span>Published {timeAgo(selectedNews.published)}</span>
+                    {formatDate(selectedNews?.published, { month: "long" })} •{" "}
+                    <span>Published {timeAgo(selectedNews?.published)}</span>
                   </p>
                   {selectedNews.img ? (
                     <img
-                      src={selectedNews.img}
-                      alt={selectedNews.title}
+                      src={selectedNews?.img}
+                      alt={selectedNews?.title}
                       className="mt-4 w-full max-w-lg rounded-lg object-cover"
                     />
                   ) : (
-                    <p className="text-sm">{selectedNews.content}</p>
+                    <p className="text-sm">{selectedNews?.content}</p>
                   )}
                 </div>
               )}
