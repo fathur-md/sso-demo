@@ -1,13 +1,3 @@
-import { OneDrive } from "@components/dashboard/OneDrive";
-import {
-  BookOpen,
-  Compass,
-  GlobeIcon,
-  LibrarySquare,
-  Mail,
-  YoutubeIcon,
-} from "lucide-react";
-
 export const loginData = {
   logo: "https://dpm.mercubuana-yogya.ac.id/wp-content/uploads/2023/04/logo-umby-white.png",
   title: "Portal Single Sign-On",
@@ -40,35 +30,27 @@ export const user = {
 export const menuApp = [
   {
     title: "E-Learning Portal",
-    logo: <Compass />,
   },
   {
     title: "Sistem Informasi Akademik (SIA)",
-    logo: <GlobeIcon />,
   },
   {
     title: "Email Outlook Mahasiswa",
-    logo: <Mail />,
   },
   {
     title: "OPAC UMBY (Koleksi Buku Perpustakaan UMBY)",
-    logo: <BookOpen />,
   },
   {
     title: "One Drive Mahasiswa",
-    logo: <OneDrive />,
   },
   {
     title: "Perpustakaan UMBY",
-    logo: <LibrarySquare />,
   },
   {
     title: "Siska (Kemahasiswaan)",
-    logo: null,
   },
   {
     title: "Youtube UMBY",
-    logo: <YoutubeIcon />,
   },
 ];
 
