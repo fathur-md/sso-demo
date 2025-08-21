@@ -33,7 +33,7 @@ export const NewsSection = ({ data, isLoading, error }) => {
   }
 
   return (
-    <div className="flex h-full w-full flex-col gap-4 max-lg:pt-12">
+    <div className="mx-auto flex h-full w-full max-w-2xl flex-col gap-4 max-lg:pt-12">
       <div className="flex w-fit items-center gap-2 rounded-lg bg-white/75 px-3 py-2 pr-6">
         <Megaphone className="size-5" />
         <h1 className="text-lg font-semibold">Pengumuman</h1>
@@ -43,7 +43,7 @@ export const NewsSection = ({ data, isLoading, error }) => {
           {data.newsSection.map((data, index) => (
             <div
               key={index}
-              className="space-y-3 rounded-lg bg-white/75 p-4 shadow-md"
+              className="w-full space-y-3 rounded-lg bg-white/75 p-4 shadow-md"
             >
               <h2 className="md:text-md text-sm font-semibold text-zinc-900">
                 {data.title}
@@ -55,9 +55,13 @@ export const NewsSection = ({ data, isLoading, error }) => {
                   className="w-full rounded-lg object-cover"
                 />
               )}
-              <p className="text-sm text-zinc-900">{data.content}</p>
+
+              <p className="w-full max-w-lg truncate text-sm text-zinc-900">
+                {data?.content}
+              </p>
+
               <div className="flex items-center justify-between border-t border-gray-400 pt-3 text-xs text-gray-600">
-                <span>Diterbitkan pada: {formatDate(data.published)}</span>
+                <span>{formatDate(data.published, { month: "short" })}</span>
                 {index > 0 && (
                   <button
                     onClick={() => openModal(data)}
@@ -118,15 +122,18 @@ export const NewsSection = ({ data, isLoading, error }) => {
                   <h1 className="pt-4 text-lg font-semibold tracking-tight">
                     {selectedNews.title}
                   </h1>
-                  {/* <p>{formatDate("2025-8-20")}</p> */}
+                  <p className="py-2 text-xs">
+                    {formatDate(selectedNews.published, { month: "long" })} •{" "}
+                    <span>Published {timeAgo(selectedNews.published)}</span>
+                  </p>
                   {selectedNews.img ? (
                     <img
                       src={selectedNews.img}
                       alt={selectedNews.title}
-                      className="mt-4 w-full rounded-lg object-cover"
+                      className="mt-4 w-full max-w-lg rounded-lg object-cover"
                     />
                   ) : (
-                    <p>{selectedNews.content}</p>
+                    <p className="text-sm">{selectedNews.content}</p>
                   )}
                 </div>
               )}
@@ -138,11 +145,47 @@ export const NewsSection = ({ data, isLoading, error }) => {
   );
 };
 
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("en-US", {
-    day: "2-digit",
-    month: "long",
+function formatDate(dateString, options = "short") {
+  const [year, month, day] = dateString.split("-").map(Number);
+  const date = new Date(year, month - 1, day);
+  return date.toLocaleDateString("en-ID", {
+    day: "numeric",
+    month: options.month,
     year: "numeric",
   });
+}
+
+function timeAgo(dateString) {
+  // Parse "YYYY-M-D" format reliably
+  const [year, month, day] = dateString.split("-").map(Number);
+  const date = new Date(year, month - 1, day); // month is 0-based
+  const now = new Date();
+
+  // If the date is invalid, fallback
+  if (isNaN(date)) return "Invalid date";
+
+  const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+
+  if (seconds < 0) return "Just now"; // future dates
+
+  const intervals = [
+    { label: "year", seconds: 31536000 },
+    { label: "month", seconds: 2592000 },
+    { label: "week", seconds: 604800 },
+    { label: "day", seconds: 86400 },
+    { label: "hour", seconds: 3600 },
+    { label: "minute", seconds: 60 },
+    { label: "second", seconds: 1 },
+  ];
+
+  for (let interval of intervals) {
+    const count = Math.floor(seconds / interval.seconds);
+    if (count >= 1) {
+      return count === 1
+        ? `1 ${interval.label} ago`
+        : `${count} ${interval.label}s ago`;
+    }
+  }
+
+  return "Just now";
 }
