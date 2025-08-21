@@ -30,10 +30,10 @@ export const Dashboard = () => {
     <div className="flex min-h-dvh p-4 md:p-6">
       <MainBg />
       <Navbar user={user} />
-      <div className="relative z-40 flex w-full flex-col gap-4 max-md:pt-18 md:flex-row">
+      <div className="relative z-40 flex w-full flex-col gap-4 transition-all max-md:pt-18 md:flex-row">
         {/* BAR SIDE & TOP */}
         <div className="hidden md:flex">
-          <Sidebar user={user} data={data} />
+          <Sidebar user={user} data={data} isLoading={isLoading} />
         </div>
         {/* CONTENT */}
         <div className="flex flex-1">
