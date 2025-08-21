@@ -1,0 +1,30 @@
+{
+  "user": {
+    "logo": "https://skalastreskerja.mercu.id/wp-content/uploads/2020/10/logonoback.png",
+    "nim": "240001111",
+    "name": "John Doe",
+    "initial": "JD",
+    "email": "240001111@mahasiswa.mercubuana-yogya.ac.id",
+    "fakultas": "Teknologi Informasi",
+    "prodi": "Informatika",
+    "kampus": "Gejayan",
+    "angkatan": "2024",
+    "jenisPerkuliahan": "Reguler pagi [R1]",
+    "kurikulum": "Teknik Informatika 2021",
+    "semester": "2",
+    "sks": "38",
+    "ips": "3.57",
+    "ipk": "3.61",
+    "news": "Demi keamanan akun Anda, mohon untuk melakukan pergantian password secara rutin setiap 3 bulan sekali. Password yang kuat dan diperbarui secara berkala akan membantu melindungi data dan informasi Anda."
+  },
+  "menuApp": [
+    { "title": "E-Learning Portal" },
+    { "title": "Sistem Informasi Akademik (SIA)" },
+    { "title": "Email Outlook Mahasiswa" },
+    { "title": "OPAC UMBY (Koleksi Buku Perpustakaan UMBY)" },
+    { "title": "One Drive Mahasiswa" },
+    { "title": "Perpustakaan UMBY" },
+    { "title": "Siska (Kemahasiswaan)" },
+    { "title": "Youtube UMBY" }
+  ]
+}
