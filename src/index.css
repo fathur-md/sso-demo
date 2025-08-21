@@ -53,4 +53,13 @@
     );
     background-color: rgba(0, 0, 0, 0);
   }
+  .shadow-morph {
+    box-shadow:
+      inset 0px 2px 4px rgba(0, 0, 0, 0.4),
+      inset -0px -2px 4px rgba(255, 255, 255, 0.4);
+  }
 }
+
+/*👉.shadow-morph {
+  @apply shadow-[inset_0px_2px_4px_rgba(0, 0, 0, 0.4), inset_-0px_-2px_4px_rgba(255, 255, 255, 0.4)];
+}👈*/

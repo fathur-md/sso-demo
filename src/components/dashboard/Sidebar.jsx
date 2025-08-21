@@ -1,4 +1,4 @@
-export const Sidebar = ({ user }) => {
+export const Sidebar = ({ user, data }) => {
   return (
     <div className="glass-bg rounded-xl p-4 px-10">
       <div className="space-y-5">
@@ -7,9 +7,7 @@ export const Sidebar = ({ user }) => {
           alt="Sidebar logo"
           className="mx-auto aspect-square w-30"
         />
-        <div>
-          
-        </div>
+        <div></div>
       </div>
     </div>
   );

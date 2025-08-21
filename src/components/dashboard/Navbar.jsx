@@ -1,3 +1,4 @@
+import { Avatar } from "@components/dashboard/Avatar";
 import {
   Dialog,
   DialogPanel,
@@ -20,7 +21,7 @@ export const Navbar = ({ user }) => {
     });
   };
   return (
-    <div className="glass-bg fixed inset-x-4 top-4 z-50 rounded-lg backdrop-blur-xl md:hidden">
+    <div className="glass-bg fixed inset-x-4 top-4 z-50 rounded-sm backdrop-blur-xl md:hidden">
       <div className="flex h-12 items-center justify-between px-4">
         <div className="flex cursor-pointer items-center gap-1">
           <img
@@ -40,11 +41,10 @@ export const Navbar = ({ user }) => {
             onClick={() => setProfileOpen(true)}
             className="flex items-center gap-2"
           >
-            <div className="flex size-7.5 items-center justify-center rounded-full bg-blue-500 text-xs">
-              <span className="font-semibold text-gray-200">
-                {user.initial}
-              </span>
-            </div>
+            <Avatar
+              user={user}
+              className="flex size-8 items-center justify-center rounded-full bg-blue-900 text-xs"
+            />
           </button>
         </div>
       </div>
