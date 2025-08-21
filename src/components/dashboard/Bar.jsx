@@ -2,7 +2,7 @@ import { fakeAuth } from "@utils/auth";
 import { Grip } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
-export const Bar = () => {
+export const Bar = ({ user }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -14,7 +14,11 @@ export const Bar = () => {
     <div className="fixed inset-x-0 top-0 z-50 bg-white/60 backdrop-blur-xl md:relative md:h-full">
       <div className="flex h-10 items-center justify-between px-4">
         <div className="flex cursor-pointer items-center gap-1">
-          <img src={user.logo} alt="bar logo" className="-mt-1 h-6 w-auto" />
+          <img
+            src="https://skalastreskerja.mercu.id/wp-content/uploads/2020/10/logonoback.png"
+            alt="bar logo"
+            className="-mt-1 h-6 w-auto"
+          />
           <h1 className="text-lg font-semibold tracking-tight">UMBY</h1>
         </div>
         <div className="flex gap-4">
