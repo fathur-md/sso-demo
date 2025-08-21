@@ -1,30 +1,34 @@
 export const fakeAuth = {
-  login: (nim, password, callback, onError) => {
-    if (nim === "123" && password === "123") {
-      localStorage.setItem("auth", "true");
-      callback();
-    } else {
-      onError();
+  login: async (nim, password, callback, onError) => {
+    try {
+      const res = await fetch("/users/json");
+      const data = await res.json();
+      const user = data.users.find(
+        (u) => u.nim === nim && u.password === password,
+      );
+      if (user) {
+        localStorage.setItem("auth", JSON.stringify(user));
+        callback(user);
+      } else {
+        onError("NIM/NIS atau Password salah");
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      onError("Terjadi kesalahan saat login");
     }
   },
+
   logout: (callback) => {
     localStorage.removeItem("auth");
     callback();
   },
+
   isAuthenticated: () => {
     return !!localStorage.getItem("auth");
   },
 
-  // isAuthenticated: !!localStorage.getItem("token"),
-
-  // login(callback) {
-  //   localStorage.setItem("token", "fake-token");
-  //   this.isAuthenticated = true;
-  //   setTimeout(callback, 100); // Simulate async login
-  // },
-  // logout(callback) {
-  //   localStorage.removeItem("token");
-  //   this.isAuthenticated = false;
-  //   setTimeout(callback, 100); // Simulate async logout
-  // },
+  getUser: () => {
+    const user = localStorage.getItem("auth");
+    return user ? JSON.parse(auth) : null;
+  },
 };
