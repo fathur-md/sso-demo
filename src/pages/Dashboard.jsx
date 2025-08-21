@@ -1,4 +1,7 @@
-import { Bar } from "@components/dashboard/Bar";
+import { Content } from "@components/dashboard/Content";
+import { Navbar } from "@components/dashboard/Navbar";
+import { Sidebar } from "@components/dashboard/Sidebar";
+import { MainBg } from "@components/MainBg";
 
 export const Dashboard = () => {
   const user = JSON.parse(localStorage.getItem("auth"));
@@ -8,12 +11,18 @@ export const Dashboard = () => {
   }
 
   return (
-    <div>
-      <Bar user={user} />
-      <div>
+    <div className="flex min-h-dvh p-4 md:p-6">
+      <MainBg />
+      <Navbar user={user} />
+      <div className="relative z-40 flex flex-col gap-4 max-md:pt-18 md:flex-row">
         {/* BAR SIDE & TOP */}
-
+        <div className="hidden md:flex">
+          <Sidebar user={user} />
+        </div>
         {/* CONTENT */}
+        <div className="">
+          <Content user={user} />
+        </div>
       </div>
     </div>
   );
