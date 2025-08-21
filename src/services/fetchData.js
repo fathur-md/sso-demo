@@ -20,7 +20,7 @@ export async function fetchLoginData() {
 
 export async function fetchMenuApp() {
   const response = await fetch(
-    "https://raw.githubusercontent.com/fathur-md/sso-demo/main/public/menuApp.json",
+    "https://raw.githubusercontent.com/fathur-md/sso-demo/main/public/menuDashboard.json",
   );
   if (!response.ok) {
     throw new Error("Failed to fetch menu data");
