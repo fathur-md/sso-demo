@@ -1,4 +1,4 @@
-import { OneDrive } from "@components/OneDrive";
+import { OneDrive } from "@components/dashboard/OneDrive";
 import {
   BookOpen,
   Compass,
