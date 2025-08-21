@@ -1,9 +1,7 @@
-import { loginData } from "@utils/mockupData.jsx";
-
-export const MainLogo = ({ color = "default" }) => {
+export const MainLogo = ({ color = "default", data }) => {
   const logoSrc =
     color === "white"
-      ? loginData.logo
+      ? data.logo
       : "https://sso.mercubuana-yogya.ac.id/build/assets/images/logo.png";
 
   return (

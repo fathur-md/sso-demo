@@ -1,0 +1,12 @@
+{
+  "menuApp": [
+    { "title": "E-Learning Portal" },
+    { "title": "Sistem Informasi Akademik (SIA)" },
+    { "title": "Email Outlook Mahasiswa" },
+    { "title": "OPAC UMBY (Koleksi Buku Perpustakaan UMBY)" },
+    { "title": "One Drive Mahasiswa" },
+    { "title": "Perpustakaan UMBY" },
+    { "title": "Siska (Kemahasiswaan)" },
+    { "title": "Youtube UMBY" }
+  ]
+}

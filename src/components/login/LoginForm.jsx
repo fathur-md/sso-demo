@@ -22,22 +22,18 @@ export const LoginForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const { nim, password } = form;
-    if (nim !== "123" || password !== "123") {
-      setAlert(false);
-      setTimeout(() => setAlert(true), 200);
-      setForm({ nim: "", password: "" }); // Clear form on error
-      return;
-    }
 
-    fakeAuth.login(() => {
-      navigate("/dashboard");
-    });
-
-    e.target.reset(); // Reset the form fields
-    setAlert(false); // Reset alert on successful login
-    setShowPass(false); // Reset password visibility
+    fakeAuth.login(
+      nim,
+      password,
+      () => navigate("/dashboard"),
+      () => {
+        setAlert(false);
+        setTimeout(() => setAlert(true), 200);
+        setForm({ nim: "", password: "" }); // Clear form on error
+      },
+    );
   };
 
   return (

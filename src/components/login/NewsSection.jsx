@@ -1,7 +1,22 @@
-import { pengumuman } from "@utils/mockupData.jsx";
 import { Megaphone } from "lucide-react";
 
-export const NewsSection = () => {
+export const NewsSection = ({ data, isLoading, error }) => {
+  if (isLoading) {
+    return (
+      <div className="flex h-full items-center justify-center">
+        <p className="text-white">Loading...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="flex h-full items-center justify-center">
+        <p className="text-red-500">Error: {error.message}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="flex h-full w-full flex-col gap-4 max-lg:pt-12">
       <div className="flex w-fit items-center gap-2 rounded-lg bg-white/75 px-3 py-2 pr-6">
@@ -11,7 +26,7 @@ export const NewsSection = () => {
       <div className="flex-1 overflow-hidden lg:h-[540px]">
         {/* TODO: Add function for "Lihat selengkapnya" later */}
         <div className="h-full w-full space-y-4 rounded-lg lg:overflow-y-auto">
-          {pengumuman.map((data, index) => (
+          {data.newsSection.map((data, index) => (
             <div
               key={index}
               className="space-y-3 rounded-lg bg-white/75 p-4 shadow-md"
