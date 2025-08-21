@@ -34,7 +34,7 @@ export const LoginSection = ({ data, error, isLoading }) => {
             </p>
           </div>
         </div>
-        <LoginForm />
+        <LoginForm  />
         <div className="pt-8">
           <a href="https://wa.me/6287814043252" target="_blank">
             <h1 className="text-center text-xl font-bold tracking-tight text-gray-100">

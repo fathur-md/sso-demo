@@ -4,34 +4,40 @@ import { AlertTriangle, Eye, EyeOff, Lock, User, X } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const LoginForm = () => {
+export const LoginForm = ({ onLogin }) => {
   const navigate = useNavigate();
-  const [form, setForm] = useState({
-    nim: "",
-    password: "",
-  });
-
+  const [nim, setNim] = useState("");
+  const [password, setPassword] = useState("");
   const [showPass, setShowPass] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name === "nim" && !/^\d*$/.test(value)) return;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    if (name === "nim") {
+      if (!/^\d*$/.test(value)) return; // Allow only digits for NIM/NIS
+      setNim(value);
+    } else if (name === "password") {
+      setPassword(value);
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const { nim, password } = form;
+    setLoading(true);
 
-    fakeAuth.login(
+    await fakeAuth.login(
       nim,
       password,
-      () => navigate("/dashboard"),
-      () => {
+      (user) => {
+        setLoading(false);
+        // onLogin(user);
+        navigate("/dashboard");
+      },
+      (errMsg) => {
+        setLoading(false);
         setAlert(false);
-        setTimeout(() => setAlert(true), 200);
-        setForm({ nim: "", password: "" }); // Clear form on error
+        setTimeout(() => setAlert(true), 200); // Hide alert after 3 seconds
       },
     );
   };
@@ -72,7 +78,7 @@ export const LoginForm = () => {
             className="w-full rounded-md border border-gray-300 bg-gray-50 py-3 pr-3 pl-10 focus:outline-none"
             inputMode="numeric"
             pattern="[0-9]*"
-            value={form.nim}
+            value={nim}
             onChange={handleChange}
           />
         </div>
@@ -84,7 +90,7 @@ export const LoginForm = () => {
               name="password"
               placeholder="Password"
               className="w-full rounded-md border border-gray-300 bg-gray-50 px-10 py-3 focus:outline-none"
-              value={form.password}
+              value={password}
               onChange={handleChange}
               autoComplete="current-password"
             />
@@ -104,7 +110,7 @@ export const LoginForm = () => {
           type="submit"
           className="w-full rounded-md bg-white p-3 font-medium text-zinc-900 transition-all active:scale-95"
         >
-          Login
+          {loading ? "Loading..." : "Login"}
         </button>
       </form>
     </div>

@@ -1,5 +1,4 @@
 import { fakeAuth } from "@utils/auth";
-import { user } from "@utils/mockupData";
 import { Grip } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 

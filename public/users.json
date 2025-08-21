@@ -1,6 +1,7 @@
 {
   "users": [
     {
+      "nimLogin": "123",
       "nim": "240001111",
       "password": "123",
       "name": "John Doe",

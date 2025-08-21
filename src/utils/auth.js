@@ -1,10 +1,11 @@
+import { fetchUserData } from "@services/fetchData";
+
 export const fakeAuth = {
   login: async (nim, password, callback, onError) => {
     try {
-      const res = await fetch("/users/json");
-      const data = await res.json();
+      const data = await fetchUserData();
       const user = data.users.find(
-        (u) => u.nim === nim && u.password === password,
+        (u) => u.nimLogin === nim.trim() && u.password === password.trim(),
       );
       if (user) {
         localStorage.setItem("auth", JSON.stringify(user));
