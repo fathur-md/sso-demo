@@ -14,13 +14,13 @@ export const Dashboard = () => {
     <div className="flex min-h-dvh p-4 md:p-6">
       <MainBg />
       <Navbar user={user} />
-      <div className="relative z-40 flex flex-col gap-4 max-md:pt-18 md:flex-row">
+      <div className="relative z-40 flex w-full flex-col gap-4 max-md:pt-18 md:flex-row">
         {/* BAR SIDE & TOP */}
         <div className="hidden md:flex">
           <Sidebar user={user} />
         </div>
         {/* CONTENT */}
-        <div className="">
+        <div className="flex flex-1">
           <Content user={user} />
         </div>
       </div>
