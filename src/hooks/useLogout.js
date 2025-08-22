@@ -1,0 +1,13 @@
+import { fakeAuth } from "@utils/auth";
+import { useNavigate } from "react-router-dom";
+
+export const useLogout = () => {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    fakeAuth.logout();
+    navigate("/");
+  };
+
+  return logout;
+};

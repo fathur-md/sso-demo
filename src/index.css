@@ -32,7 +32,6 @@
     -ms-overflow-style: none;
   }
   .glass-bg {
-    /* @apply backdrop-blur-xl bg-[rgba(0,0,0,0)] bg-[radial-gradient(circle_at_100%_0px,rgba(255,255,255,0.85)_0px,rgba(245,245,245,0.13)_183%)]; */
     backdrop-filter: blur(24px); /* Matches backdrop-blur-xl */
     -webkit-backdrop-filter: blur(24px); /* For Safari */
     background: radial-gradient(
@@ -43,7 +42,6 @@
     background-color: rgba(0, 0, 0, 0);
   }
   .glass-bg-secondary {
-    /* @apply backdrop-blur-xl bg-[rgba(0,0,0,0)] bg-[radial-gradient(circle_at_100%_0px,rgba(255,255,255,0.85)_0px,rgba(245,245,245,0.13)_183%)]; */
     backdrop-filter: blur(14px); /* Matches backdrop-blur-xl */
     -webkit-backdrop-filter: blur(14px); /* For Safari */
     background: radial-gradient(
@@ -55,11 +53,7 @@
   }
   .shadow-morph {
     box-shadow:
-      inset 0px 2px 4px rgba(0, 0, 0, 0.4),
-      inset -0px -2px 4px rgba(255, 255, 255, 0.4);
+      inset 2px 3px 4px rgba(0, 0, 0, 0.4),
+      inset -2px -3px 4px rgba(255, 255, 255, 0.4);
   }
 }
-
-/*👉.shadow-morph {
-  @apply shadow-[inset_0px_2px_4px_rgba(0, 0, 0, 0.4), inset_-0px_-2px_4px_rgba(255, 255, 255, 0.4)];
-}👈*/

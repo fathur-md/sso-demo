@@ -21,7 +21,7 @@ export const fakeAuth = {
 
   logout: (callback) => {
     localStorage.removeItem("auth");
-    callback();
+    callback?.();
   },
 
   isAuthenticated: () => {

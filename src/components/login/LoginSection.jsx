@@ -8,7 +8,7 @@ export const LoginSection = ({ data }) => {
       <div className="max-w-sm p-2 lg:px-6">
         <div>
           {data?.loginSection && (
-            <MainLogo color="white" data={data.loginSection} />
+            <MainLogo color="white" data={data.loginSection} className="h-30" />
           )}
           <h1 className="py-6 pb-8 text-center text-3xl font-semibold tracking-tight text-gray-200">
             {data?.loginSection.title}

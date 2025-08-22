@@ -5,20 +5,16 @@ import {
   Transition,
   TransitionChild,
 } from "@headlessui/react";
-import { fakeAuth } from "@utils/auth";
+import { useLogout } from "@hooks/useLogout";
 import { Grip, X } from "lucide-react";
 import { Fragment, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const Navbar = ({ user }) => {
-  const navigate = useNavigate();
   const [profileOpen, setProfileOpen] = useState(false);
-
+  const logout = useLogout();
   const handleLogout = () => {
     setProfileOpen(false);
-    fakeAuth.logout(() => {
-      navigate("/");
-    });
+    logout();
   };
   return (
     <div className="glass-bg fixed inset-x-4 top-4 z-50 rounded-sm backdrop-blur-xl md:hidden">
@@ -56,7 +52,7 @@ export const Navbar = ({ user }) => {
           onClose={() => setProfileOpen(false)}
         >
           {/* Background overlay (klik luar area close) */}
-          <Transition.Child
+          <TransitionChild
             as={Fragment}
             enter="ease-out duration-150"
             enterFrom="opacity-0"
@@ -66,14 +62,14 @@ export const Navbar = ({ user }) => {
             leaveTo="opacity-0"
           >
             <div
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+              className="fixed inset-0 hidden bg-black/60 backdrop-blur-sm"
               aria-hidden="true"
             />
-          </Transition.Child>
+          </TransitionChild>
 
           {/* Menu Panel */}
-          <div className="fixed inset-0 flex items-start justify-end p-4">
-            <Transition.Child
+          <div className="fixed inset-0 z-40 flex items-start justify-end p-4">
+            <TransitionChild
               as={Fragment}
               enter="ease-out duration-150"
               enterFrom="opacity-0 scale-95"
@@ -82,7 +78,7 @@ export const Navbar = ({ user }) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="mt-15 w-40 rounded-lg">
+              <DialogPanel className="mt-15 w-40 rounded-lg">
                 <button
                   onClick={() => {
                     setProfileOpen(false);
@@ -92,8 +88,8 @@ export const Navbar = ({ user }) => {
                 >
                   Logout
                 </button>
-              </Dialog.Panel>
-            </Transition.Child>
+              </DialogPanel>
+            </TransitionChild>
           </div>
         </Dialog>
       </Transition>
