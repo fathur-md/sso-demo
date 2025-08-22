@@ -2,8 +2,14 @@ import { ContentLayout } from "@layouts/ContentLayout";
 import { Sidebar } from "@components/dashboard/Sidebar";
 import { useState } from "react";
 
-export const DashboardLayout = ({ user, data, isLoading, error }) => {
-  const [activePage, setActivePage] = useState("dashboard");
+export const DashboardLayout = ({
+  user,
+  data,
+  isLoading,
+  error,
+  activePage,
+  setActivePage,
+}) => {
   return (
     <div className="relative z-40 flex flex-1">
       {/* Sidebar*/}

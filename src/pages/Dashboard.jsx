@@ -5,9 +5,11 @@ import { useDelayedLoading } from "@hooks/useDelayedLoading";
 import { fetchMenuApp } from "@services/fetchData";
 import { useQuery } from "@tanstack/react-query";
 import { Navbar } from "@components/navbar/Navbar";
+import { useState } from "react";
 
 export const Dashboard = () => {
   const user = useAuth();
+  const [activePage, setActivePage] = useState("dashboard");
 
   const {
     data,
@@ -23,12 +25,18 @@ export const Dashboard = () => {
   return (
     <div className="relative flex min-h-dvh flex-col">
       <MainBg />
-      <Navbar user={user} />
+      <Navbar
+        user={user}
+        activePage={activePage}
+        setActivePage={setActivePage}
+      />
       <DashboardLayout
         user={user}
         data={data}
         isLoading={isLoading}
         error={error}
+        activePage={activePage}
+        setActivePage={setActivePage}
       />
     </div>
   );
