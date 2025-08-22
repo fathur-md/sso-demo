@@ -35,7 +35,7 @@ export const Sidebar = ({ isLoading, activePage, setActivePage }) => {
           <li className="cursor-pointer rounded transition-all">
             <button
               onClick={() => setActivePage("dashboard")}
-              className={`flex w-full items-center gap-2 rounded p-2 transition-all ${activePage === "dashboard" ? "bg-blue-900 fill-gray-300 stroke-gray-300 text-gray-300" : "fill-blue-900 stroke-blue-900 text-blue-950"}`}
+              className={`flex w-full items-center gap-2 rounded p-2 transition-all ${activePage === "dashboard" ? "bg-blue-900 fill-gray-300 stroke-gray-300 text-gray-300 hover:bg-blue-950" : "fill-blue-900 stroke-blue-900 text-blue-950 hover:bg-white/50"}`}
             >
               <LayoutDashboardIcon className="size-6 fill-inherit stroke-inherit" />
               Dashboard
@@ -44,7 +44,7 @@ export const Sidebar = ({ isLoading, activePage, setActivePage }) => {
           <li className="cursor-pointer rounded transition-all">
             <button
               onClick={() => setActivePage("reset-password")}
-              className={`flex w-full items-center gap-2 rounded p-2 transition-all ${activePage === "reset-password" ? "bg-blue-900 stroke-gray-300 text-gray-300" : "stroke-blue-900 text-blue-950"}`}
+              className={`flex w-full items-center gap-2 rounded p-2 transition-all hover:bg-blue-950 ${activePage === "reset-password" ? "bg-blue-900 stroke-gray-300 text-gray-300" : "stroke-blue-900 text-blue-950 hover:bg-white/50"}`}
             >
               <LockKeyholeOpen className="size-6 stroke-inherit" />
               Reset Password
