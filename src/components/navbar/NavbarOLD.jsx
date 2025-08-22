@@ -9,7 +9,7 @@ import { useLogout } from "@hooks/useLogout";
 import { Grip, X } from "lucide-react";
 import { Fragment, useState } from "react";
 
-export const Navbar = ({ user }) => {
+export const NavbarOLD = ({ user }) => {
   const [profileOpen, setProfileOpen] = useState(false);
   const logout = useLogout();
   const handleLogout = () => {

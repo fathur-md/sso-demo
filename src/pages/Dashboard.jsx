@@ -1,10 +1,10 @@
 import { DashboardLayout } from "@layouts/DashboardLayout";
-import { Navbar } from "@components/dashboard/Navbar";
 import { MainBg } from "@components/MainBg";
 import { useAuth } from "@hooks/useAuth";
 import { useDelayedLoading } from "@hooks/useDelayedLoading";
 import { fetchMenuApp } from "@services/fetchData";
 import { useQuery } from "@tanstack/react-query";
+import { Navbar } from "@components/navbar/Navbar";
 
 export const Dashboard = () => {
   const user = useAuth();
