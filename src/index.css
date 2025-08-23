@@ -14,14 +14,14 @@
   html,
   body,
   #root {
-    @apply font-default h-full bg-blue-900 text-zinc-900 antialiased select-none;
+    @apply font-default h-full bg-blue-900 text-zinc-800 antialiased select-none;
   }
 }
 
 @layer components {
   button {
     cursor: pointer;
-    @apply focus:outline-none;
+    @apply focus:outline-none active:scale-95;
   }
 }
 

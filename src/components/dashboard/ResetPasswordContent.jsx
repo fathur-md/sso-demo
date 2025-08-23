@@ -1,4 +1,4 @@
-export const ResetPasswordContent = ({ user, data, isLoading, error }) => {
+export const ResetPasswordContent = () => {
   return (
     <div className="w-full">
       <div className="glass-bg flex h-full flex-col items-center justify-center rounded-lg p-4">

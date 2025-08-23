@@ -1,43 +1,16 @@
-import { DashboardLayout } from "@layouts/DashboardLayout";
-import { MainBg } from "@components/MainBg";
-import { useAuth } from "@hooks/useAuth";
-import { useDelayedLoading } from "@hooks/useDelayedLoading";
-import { fetchMenuApp } from "@services/fetchData";
-import { useQuery } from "@tanstack/react-query";
-import { Navbar } from "@components/navbar/Navbar";
-import { useState } from "react";
+import { DashboardContent } from "@components/dashboard/DashboardContent";
+import { ResetPasswordContent } from "@components/dashboard/ResetPasswordContent";
 
-export const Dashboard = () => {
-  const user = useAuth();
-  const [activePage, setActivePage] = useState("dashboard");
-
-  const {
-    data,
-    isLoading: queryLoading,
-    error,
-  } = useQuery({
-    queryKey: ["menu", user?.id],
-    queryFn: () => fetchMenuApp(user?.id),
-  });
-
-  const isLoading = useDelayedLoading(queryLoading, 1000);
-
+export const Dashboard = ({ activeContent }) => {
   return (
-    <div className="relative flex min-h-dvh flex-col">
-      <MainBg />
-      <Navbar
-        user={user}
-        activePage={activePage}
-        setActivePage={setActivePage}
-      />
-      <DashboardLayout
-        user={user}
-        data={data}
-        isLoading={isLoading}
-        error={error}
-        activePage={activePage}
-        setActivePage={setActivePage}
-      />
+    <div className="p-4 md:p-0">
+      {activeContent === "dashboard" ? (
+        <DashboardContent />
+      ) : activeContent === "reset-password" ? (
+        <ResetPasswordContent />
+      ) : (
+        <h1 className="text-2xl font-bold">Page Not Found</h1>
+      )}
     </div>
   );
 };

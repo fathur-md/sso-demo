@@ -18,9 +18,9 @@ export async function fetchLoginData() {
   return response.json();
 }
 
-export async function fetchMenuApp() {
+export async function fetchDashboard() {
   const response = await fetch(
-    "https://raw.githubusercontent.com/fathur-md/sso-demo/main/public/menuDashboard.json",
+    "https://raw.githubusercontent.com/fathur-md/sso-demo/main/public/dashboard.json",
   );
   if (!response.ok) {
     throw new Error("Failed to fetch menu data");

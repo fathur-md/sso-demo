@@ -1,35 +1,23 @@
-import { ContentLayout } from "@layouts/ContentLayout";
-import { Sidebar } from "@components/dashboard/Sidebar";
 import { useState } from "react";
+import { MainBg } from "@components/MainBg";
+import { Dashboard } from "@pages/Dashboard";
+import { Navbar } from "@components/navigation/Navbar";
+import { Sidebar } from "@components/navigation/Sidebar";
 
-export const DashboardLayout = ({
-  user,
-  data,
-  isLoading,
-  error,
-  activePage,
-  setActivePage,
-}) => {
+export const DashboardLayout = () => {
+  const [activeContent, setActiveContent] = useState("dashboard");
+
   return (
-    <div className="relative z-40 flex flex-1">
-      {/* Sidebar*/}
-      <aside className="hidden w-64 shrink-0 p-6 pr-0 md:block">
+    <>
+      <MainBg />
+      <Navbar />
+      <div className="relative z-10 grid gap-4 pt-12 md:grid-cols-[14rem_1fr] md:p-4">
         <Sidebar
-          isLoading={isLoading}
-          activePage={activePage}
-          setActivePage={setActivePage}
+          activeContent={activeContent}
+          setActiveContent={setActiveContent}
         />
-      </aside>
-      {/* Content */}
-      <div className="flex min-w-0 flex-1 p-4 md:p-6">
-        <ContentLayout
-          user={user}
-          data={data}
-          isLoading={isLoading}
-          error={error}
-          activePage={activePage}
-        />
+        <Dashboard activeContent={activeContent} />
       </div>
-    </div>
+    </>
   );
 };
