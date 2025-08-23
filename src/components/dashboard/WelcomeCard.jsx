@@ -13,7 +13,8 @@ export const WelcomeCard = ({ user, data }) => {
           })}
         </p>
         <h1 className="py-3 text-2xl font-medium text-gray-200">
-          {getGreeting()}, <span>{user?.name || "User"} ! 👋</span>
+          {getGreeting()},{" "}
+          <span>{user?.name || "Muhammad Fathurrahman"} ! 👋</span>
         </h1>
       </div>
       <div className="md:max-w-sm">
