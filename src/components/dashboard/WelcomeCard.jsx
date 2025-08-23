@@ -2,19 +2,24 @@ import { AlertTriangleIcon } from "lucide-react";
 
 export const WelcomeCard = ({ user, data }) => {
   return (
-    <div className="w-full">
-      <p className="p-4 text-sm text-gray-200">
-        {new Date().toLocaleDateString("id-ID", {
-          weekday: "long",
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })}
-      </p>
-      <div className="p-2">
-        <h1 className="p-2 text-2xl font-medium text-gray-200">
+    <div className="grid w-full grid-cols-1 gap-3 p-2 md:grid-cols-[1fr_auto]">
+      <div className="">
+        <p className="pb-6 text-sm text-gray-200">
+          {new Date().toLocaleDateString("id-ID", {
+            weekday: "long",
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </p>
+        <h1 className="py-3 text-2xl font-medium text-gray-200">
           {getGreeting()}, <span>{user?.name || "User"} ! 👋</span>
         </h1>
+      </div>
+      <div className="md:max-w-sm">
+        <p className="rounded-lg bg-amber-300/70 p-2 text-sm backdrop-blur-sm">
+          {data?.news}
+        </p>
       </div>
     </div>
   );

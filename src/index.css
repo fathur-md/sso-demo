@@ -23,6 +23,9 @@
     cursor: pointer;
     @apply focus:outline-none active:scale-95;
   }
+  a {
+    cursor: pointer;
+  }
 }
 
 @layer utilities {

@@ -3,7 +3,7 @@ import { ResetPasswordContent } from "@components/dashboard/ResetPasswordContent
 
 export const Dashboard = ({ activeContent, data, isLoading, error }) => {
   return (
-    <div className="p-4 md:p-0">
+    <div className="p-4 lg:p-0">
       {activeContent === "dashboard" ? (
         <DashboardContent data={data} isLoading={isLoading} error={error} />
       ) : activeContent === "reset-password" ? (

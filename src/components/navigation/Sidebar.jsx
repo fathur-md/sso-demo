@@ -11,7 +11,7 @@ export const Sidebar = ({ activeContent, setActiveContent }) => {
   const logout = useLogout();
 
   return (
-    <div className="hidden md:block">
+    <div className="hidden lg:block">
       <div className="glass-bg sticky top-4 min-h-[calc(100vh-32px)] overflow-y-scroll rounded-lg">
         <div className="pt-4 pb-2">
           <MainLogo className="pointer-events-none mx-auto w-30" />

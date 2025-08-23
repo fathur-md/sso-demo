@@ -1,0 +1,93 @@
+import {
+  BookCopy,
+  Compass,
+  GraduationCap,
+  LibraryBig,
+  LucideYoutube,
+  Mail,
+  UniversityIcon,
+} from "lucide-react";
+import OneDriveIcon from "@assets/onedrive.svg";
+
+const menuAppContent = [
+  {
+    title: "E-Learning Portal",
+    icon: GraduationCap,
+    img: null,
+    id: "e-learning",
+  },
+  {
+    title: "Sistem Informasi Akademik (SIA)",
+    icon: UniversityIcon,
+    img: "https://skalastreskerja.mercu.id/wp-content/uploads/2020/10/logonoback.png",
+    id: "siakad",
+  },
+  {
+    title: "Email Outlook Mahasiswa",
+    icon: Mail,
+    img: null,
+    id: "email",
+  },
+  {
+    title: "OPAC UMBY (Koleksi Buku Perpustakaan UMBY)",
+    icon: BookCopy,
+    img: null,
+    id: "opac",
+  },
+  {
+    title: "One Drive Mahasiswa",
+    icon: null,
+    img: OneDriveIcon,
+    id: "onedrive",
+  },
+  {
+    title: "Perpustakaan UMBY",
+    icon: LibraryBig,
+    img: null,
+  },
+  {
+    title: "Siska (Kemahasiswaan)",
+    icon: null,
+    img: "https://skalastreskerja.mercu.id/wp-content/uploads/2020/10/logonoback.png",
+    id: "siska",
+  },
+  {
+    title: "Youtube UMBY",
+    icon: LucideYoutube,
+    img: null,
+    id: "youtube",
+  },
+];
+
+export const MenuApp = () => {
+  return (
+    <div className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2">
+      {menuAppContent.map(({ title, icon: Icon, id, color, img }) => (
+        <MenuItem key={id} Icon={Icon} title={title} img={img} />
+      ))}
+    </div>
+  );
+};
+
+const MenuItem = ({ Icon, title, img }) => {
+  return (
+    <div className="flex h-full items-center gap-4 rounded-lg bg-white/80 px-3 py-4 backdrop-blur-xl">
+      <div className="color flex size-12 items-center justify-center text-blue-900">
+        {Icon ? (
+          <Icon className="size-10" />
+        ) : img ? (
+          <img
+            src={img}
+            alt="OneDrive"
+            className="h-full w-full object-contain p-1.5"
+          />
+        ) : (
+          <span>No Icon or Image</span>
+        )}
+      </div>
+      <div>
+        <span className="font-semibold text-blue-900">{title}</span>
+      </div>
+    </div>
+  );
+};
