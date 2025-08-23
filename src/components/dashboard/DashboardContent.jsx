@@ -1,12 +1,14 @@
+import { ProfileCard } from "@components/dashboard/ProfileCard";
 import { WelcomeCard } from "@components/dashboard/WelcomeCard";
 import { useAuth } from "@hooks/useAuth";
 
-export const DashboardContent = () => {
+export const DashboardContent = ({ data, isLoading, error }) => {
   const user = useAuth();
   return (
     <div className="h-[200vh] w-full">
-      <div>
-        <WelcomeCard user={user} />
+      <div className="flex flex-col gap-4">
+        <WelcomeCard user={user} data={data} />
+        <ProfileCard user={user} data={data} />
       </div>
     </div>
   );

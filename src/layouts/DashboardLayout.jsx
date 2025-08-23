@@ -3,9 +3,15 @@ import { MainBg } from "@components/MainBg";
 import { Dashboard } from "@pages/Dashboard";
 import { Navbar } from "@components/navigation/Navbar";
 import { Sidebar } from "@components/navigation/Sidebar";
+import { useQuery } from "@tanstack/react-query";
+import { fetchDashboard } from "@services/fetchData";
 
 export const DashboardLayout = () => {
   const [activeContent, setActiveContent] = useState("dashboard");
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["dashboard"],
+    queryFn: fetchDashboard,
+  });
 
   return (
     <>
@@ -16,7 +22,12 @@ export const DashboardLayout = () => {
           activeContent={activeContent}
           setActiveContent={setActiveContent}
         />
-        <Dashboard activeContent={activeContent} />
+        <Dashboard
+          activeContent={activeContent}
+          data={data}
+          isLoading={isLoading}
+          error={error}
+        />
       </div>
     </>
   );

@@ -15,7 +15,7 @@ export const Sidebar = ({ activeContent, setActiveContent }) => {
       <div className="glass-bg sticky top-4 min-h-[calc(100vh-32px)] overflow-y-scroll rounded-lg">
         <div className="pt-4 pb-2">
           <MainLogo className="pointer-events-none mx-auto w-30" />
-          <h1 className="px-2 text-center text-lg font-medium text-teal-700">
+          <h1 className="px-2 text-center text-lg font-medium text-blue-900">
             Single Sign On UMBY
           </h1>
         </div>

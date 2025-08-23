@@ -1,7 +1,9 @@
-export const WelcomeCard = ({ user }) => {
+import { AlertTriangleIcon } from "lucide-react";
+
+export const WelcomeCard = ({ user, data }) => {
   return (
-    <div className="rounded-lg bg-white/80 p-4 backdrop-blur-md">
-      <p className="text-sm text-gray-500">
+    <div className="w-full">
+      <p className="p-4 text-sm text-gray-200">
         {new Date().toLocaleDateString("id-ID", {
           weekday: "long",
           year: "numeric",
@@ -9,14 +11,10 @@ export const WelcomeCard = ({ user }) => {
           day: "numeric",
         })}
       </p>
-      <div className="mt-8">
-        <h1 className="text-2xl">
-          {getGreeting()},{" "}
-          <span className="font-medium">{user?.name || "User"}</span>
+      <div className="p-2">
+        <h1 className="p-2 text-2xl font-medium text-gray-200">
+          {getGreeting()}, <span>{user?.name || "User"} ! 👋</span>
         </h1>
-        <p>
-          
-        </p>
       </div>
     </div>
   );
