@@ -17,7 +17,11 @@ export const WelcomeCard = ({ user, data }) => {
         </h1>
       </div>
       <div className="md:max-w-sm">
-        <p className="rounded-lg bg-amber-300/70 p-2 text-sm backdrop-blur-sm">
+        <div className="mb-2 flex items-center gap-1 font-medium">
+          <AlertTriangleIcon className="inline size-4 text-amber-400" />
+          <span className="text-sm text-amber-300">Perhatian</span>
+        </div>
+        <p className="rounded-lg bg-amber-300 p-2 py-1.5 text-sm">
           {data?.news}
         </p>
       </div>

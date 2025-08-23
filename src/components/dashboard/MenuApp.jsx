@@ -61,7 +61,7 @@ const menuAppContent = [
 
 export const MenuApp = () => {
   return (
-    <div className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2">
+    <div className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 md:auto-rows-[minmax(0,7rem)] md:grid-cols-3 xl:grid-cols-4">
       {menuAppContent.map(({ title, icon: Icon, id, color, img }) => (
         <MenuItem key={id} Icon={Icon} title={title} img={img} />
       ))}
@@ -71,7 +71,7 @@ export const MenuApp = () => {
 
 const MenuItem = ({ Icon, title, img }) => {
   return (
-    <div className="flex h-full items-center gap-4 rounded-lg bg-white/80 px-3 py-4 backdrop-blur-xl">
+    <div className="flex h-full items-center justify-start gap-4 rounded-lg bg-gray-100 px-3 py-4 backdrop-blur-xl">
       <div className="color flex size-12 items-center justify-center text-blue-900">
         {Icon ? (
           <Icon className="size-10" />
@@ -79,7 +79,7 @@ const MenuItem = ({ Icon, title, img }) => {
           <img
             src={img}
             alt="OneDrive"
-            className="h-full w-full object-contain p-1.5"
+            className="min-w-12 object-contain p-1.5"
           />
         ) : (
           <span>No Icon or Image</span>
