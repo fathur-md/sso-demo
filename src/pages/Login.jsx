@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { fetchLoginData } from "@services/fetchData";
 import { LoginContent } from "@components/login/LoginContent";
 import { NewsContent } from "@components/login/NewsContent";
-import { MainBg } from "@components/MainBg";
 
 export const Login = () => {
   const { data } = useQuery({
@@ -11,12 +10,9 @@ export const Login = () => {
   });
 
   return (
-    <>
-      <MainBg />
-      <div className="relative z-10 grid lg:grid-cols-[1fr_32rem]">
-        <NewsContent data={data} />
-        <LoginContent data={data} />
-      </div>
-    </>
+    <div className="mx-auto grid max-w-6xl lg:grid-cols-[1fr_26rem]">
+      <NewsContent data={data} />
+      <LoginContent data={data} />
+    </div>
   );
 };
