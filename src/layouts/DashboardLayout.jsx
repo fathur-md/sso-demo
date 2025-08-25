@@ -1,35 +1,34 @@
-import { ContentLayout } from "@layouts/ContentLayout";
-import { Sidebar } from "@components/dashboard/Sidebar";
 import { useState } from "react";
+import { MainBg } from "@components/MainBg";
+import { Dashboard } from "@pages/Dashboard";
+import { Navbar } from "@components/navigation/Navbar";
+import { Sidebar } from "@components/navigation/Sidebar";
+import { useQuery } from "@tanstack/react-query";
+import { fetchDashboard } from "@services/fetchData";
 
-export const DashboardLayout = ({
-  user,
-  data,
-  isLoading,
-  error,
-  activePage,
-  setActivePage,
-}) => {
+export const DashboardLayout = () => {
+  const [activeContent, setActiveContent] = useState("dashboard");
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["dashboard"],
+    queryFn: fetchDashboard,
+  });
+
   return (
-    <div className="relative z-40 flex flex-1">
-      {/* Sidebar*/}
-      <aside className="hidden w-64 shrink-0 p-6 pr-0 md:block">
+    <>
+      <MainBg />
+      <Navbar setActiveContent={setActiveContent} />
+      <div className="relative z-10 grid gap-4 pt-12 lg:grid-cols-[14rem_1fr] lg:p-4">
         <Sidebar
-          isLoading={isLoading}
-          activePage={activePage}
-          setActivePage={setActivePage}
+          activeContent={activeContent}
+          setActiveContent={setActiveContent}
         />
-      </aside>
-      {/* Content */}
-      <div className="flex min-w-0 flex-1 p-4 md:p-6">
-        <ContentLayout
-          user={user}
+        <Dashboard
+          activeContent={activeContent}
           data={data}
           isLoading={isLoading}
           error={error}
-          activePage={activePage}
         />
       </div>
-    </div>
+    </>
   );
 };

@@ -1,7 +1,8 @@
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
-import { Login } from "@pages/Login";
 import { fakeAuth } from "@utils/auth";
-import { Dashboard } from "@pages/Dashboard";
+import { DashboardLayout } from "@layouts/DashboardLayout";
+import { Login } from "@pages/Login";
+import { Test } from "@components/debug/Test";
 
 // Protected route wrapper
 function ProtectedRoute({ children }) {
@@ -13,11 +14,12 @@ export default function App() {
     <HashRouter>
       <Routes>
         <Route path="/" element={<Login />} />
+        {/* <Route path="/" element={<Test />} /> */}
         <Route
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <DashboardLayout />
             </ProtectedRoute>
           }
         />

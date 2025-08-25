@@ -30,6 +30,6 @@ export const fakeAuth = {
 
   getUser: () => {
     const user = localStorage.getItem("auth");
-    return user ? JSON.parse(auth) : null;
+    return user ? JSON.parse(user) : null;
   },
 };

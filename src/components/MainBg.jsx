@@ -1,7 +1,7 @@
 export const MainBg = () => {
   return (
     <div
-      className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+      className="absolute inset-0 z-1 h-screen translate-z-0 overflow-hidden bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `url("https://raw.githubusercontent.com/fathur-md/sso-demo/main/src/assets/login-bg.png")`,
       }}

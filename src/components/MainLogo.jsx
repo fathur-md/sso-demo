@@ -1,7 +1,7 @@
-export const MainLogo = ({ color = "default", data, className = "" }) => {
+export const MainLogo = ({ color = "default", className = "" }) => {
   const logoSrc =
     color === "white"
-      ? data.logo
+      ? "https://dpm.mercubuana-yogya.ac.id/wp-content/uploads/2023/04/logo-umby-white.png"
       : "https://sso.mercubuana-yogya.ac.id/build/assets/images/logo.png";
 
   return (
