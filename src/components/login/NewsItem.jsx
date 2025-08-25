@@ -44,7 +44,7 @@ export const NewsItem = ({ data, selected, onClose }) => {
         <motion.div
           onClick={(e) => e.stopPropagation()}
           layoutId={`card-container-${selected}`}
-          className={`glass-bg relative mx-auto my-auto w-full max-w-4xl overflow-hidden rounded-2xl backdrop-blur-sm md:flex ${img ? "" : "md:max-w-xl"}`}
+          className={`glass-bg relative mx-auto my-auto w-full max-w-4xl overflow-hidden rounded-2xl backdrop-blur-sm max-md:pt-12 md:flex ${img ? "" : "md:max-w-xl"}`}
         >
           {/* BUTTON */}
           <button
