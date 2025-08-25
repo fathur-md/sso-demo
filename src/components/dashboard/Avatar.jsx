@@ -1,7 +1,7 @@
 export const Avatar = ({ className = "", user }) => {
   return (
     <div className={className}>
-      {user.img ? (
+      {user?.img ? (
         <img
           src={user.img}
           alt={`${user.name}'s avatar`}

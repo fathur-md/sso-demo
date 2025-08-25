@@ -62,8 +62,8 @@ const menuAppContent = [
 export const MenuApp = () => {
   return (
     <div className="grid grid-cols-1 items-stretch gap-4 sm:grid-cols-2 md:auto-rows-[minmax(0,7rem)] md:grid-cols-3 xl:grid-cols-4">
-      {menuAppContent.map(({ title, icon: Icon, id, color, img }) => (
-        <MenuItem key={id} Icon={Icon} title={title} img={img} />
+      {menuAppContent.map(({ title, icon: Icon, img }) => (
+        <MenuItem key={title} Icon={Icon} title={title} img={img} />
       ))}
     </div>
   );

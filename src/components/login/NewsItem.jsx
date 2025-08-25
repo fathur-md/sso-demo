@@ -1,7 +1,5 @@
-import { Megaphone } from "lucide-react";
+import { ReadmeOpen } from "@components/login/Readme";
 import { motion, MotionConfig } from "motion/react";
-import ReactMarkdown from "react-markdown";
-import readmeContent from "../../../README.md?raw";
 import { useEffect } from "react";
 
 export const NewsItem = ({ data, selected, onClose }) => {
@@ -19,104 +17,67 @@ export const NewsItem = ({ data, selected, onClose }) => {
   }, []);
 
   const isReadme = title === "README";
+
+  if (isReadme)
+    return (
+      <MotionConfig transition={{ type: "spring", duration: 0.5 }}>
+        <ReadmeOpen onClose={onClose} />
+      </MotionConfig>
+    );
+
   return (
-    <MotionConfig
-      transition={{ type: "spring", stiffness: 250, damping: 25, mass: 0.8 }}
-    >
+    <MotionConfig transition={{ type: "spring", duration: 0.5, bounce: 0.2 }}>
       {/* Overlay */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.2, delay: 0.1 }}
-        className="fixed inset-0 z-100 items-center justify-center overflow-hidden bg-black/80 backdrop-blur-md"
+        transition={{ duration: 0.2 }}
+        className="fixed inset-0 z-100 items-center justify-center overflow-hidden bg-black/80"
         onClick={onClose}
       />
 
-      {/* Card Container */}
-      <div className="fixed inset-x-3 inset-y-4 z-110 flex justify-center overflow-y-scroll text-white">
+      <div
+        onClick={onClose}
+        className="fixed inset-0 z-110 grid overflow-y-auto p-4"
+      >
         <motion.div
+          onClick={(e) => e.stopPropagation()}
           layoutId={`card-container-${selected}`}
-          className="relative mx-auto w-full max-w-5xl rounded-2xl"
+          className={`glass-bg relative mx-auto my-auto w-full max-w-4xl overflow-hidden rounded-2xl backdrop-blur-sm md:flex ${img ? "" : "md:max-w-xl"}`}
         >
-          {/* CARD HEADER */}
-          <motion.div
-            layoutId="card-header-bg"
-            className="rounded-lg bg-white/80 p-3 backdrop-blur-lg"
+          {/* BUTTON */}
+          <button
+            onClick={onClose}
+            className="absolute top-2 right-2 rounded-xl bg-red-400 px-6 py-2 text-white"
           >
-            <div className="flex items-center justify-between text-blue-950">
-              <motion.div
-                layout="position"
-                className="flex items-center gap-2 text-blue-950"
-              >
-                <Megaphone className="size-6 lg:size-8" />
-                <h1 className="text-lg font-semibold lg:text-xl">Pengumuman</h1>
-              </motion.div>
-              <button
-                onClick={onClose}
-                className="rounded-lg bg-red-400 px-6 py-1.5 text-sm font-medium text-gray-100"
-              >
-                Tutup
-              </button>
+            Tutup
+          </button>
+
+          {/* TITLE */}
+          <motion.div className={`p-4 md:w-1/2 ${img ? "" : "md:w-full"}`}>
+            <span className="text-sm">
+              {formatDate(published, true, true)} &middot; {timeAgo(published)}
+            </span>
+            <h3 className="text-lg font-semibold">{title}</h3>
+            <div className="pt-4">
+              <h1>{content}</h1>
             </div>
           </motion.div>
 
-          <div className="md:flex md:pt-12">
-            <div>
-              {/* CARD TITLE */}
-              <motion.div
-                layoutId={`card-title-date-${selected}`}
-                className="p-4"
-              >
-                <span className="flex items-center pt-2 text-sm font-medium text-gray-400">
-                  {formatDate(published, true, true)} •{" "}
-                  <span className="pl-1 text-xs">
-                    Published {timeAgo(published)}
-                  </span>
-                </span>
-                <h3 className="pt-2 text-2xl font-semibold text-gray-300">
-                  {title}
-                </h3>
-              </motion.div>
-
-              {/* CARD CONTENT */}
-              <motion.div className="flex-1 p-4">
-                {isReadme ? (
-                  <>
-                    <motion.div layoutId="readme-content">
-                      <p className="text-lg font-semibold">Login Info</p>
-                      <ul className="list-disc py-4 pl-5 text-base font-semibold">
-                        <li>
-                          NIM/NIS: <code>123</code>
-                        </li>
-                        <li>
-                          Password: <code>123</code>
-                        </li>
-                      </ul>
-                    </motion.div>
-                    <div className="prose prose-invert pb-30 text-white">
-                      <ReactMarkdown>{readmeContent}</ReactMarkdown>
-                    </div>
-                  </>
-                ) : (
-                  <p className="text-sm text-white">{content}</p>
-                )}
-              </motion.div>
-            </div>
-
-            <div>
-              {/* CARD IMAGE */}
-              <motion.div layoutId={`card-image-${selected}`}>
-                {img && (
-                  <img
-                    src={img}
-                    alt={title}
-                    className="w-full rounded-2xl object-cover"
-                  />
-                )}
-              </motion.div>
-            </div>
-          </div>
+          {/* IMAGE */}
+          {img && (
+            <motion.div
+              layoutId={`card-image-${selected}`}
+              className="md:block md:w-1/2"
+            >
+              <img
+                src={img}
+                alt={title}
+                className="h-full w-full object-cover"
+              />
+            </motion.div>
+          )}
         </motion.div>
       </div>
     </MotionConfig>
