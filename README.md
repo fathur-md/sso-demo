@@ -12,6 +12,10 @@ This project is for educational and learning purposes only.
 > I am developing it step by step for learning, experimenting with each part (e.g. fetch data, useQuery, useState, authentication, routing, and more).  
 > You may find unfinished features, placeholder data, or code samples intended for practice.
 
+> **Git Learning:**  
+> This project is also for learning Git commands and practicing proper version control workflows.  
+> I am learning to separate each branch for different features (login, dashboard, and others) to understand branching strategies and collaborative development practices.
+
 ---
 
 ## ✨ Features
