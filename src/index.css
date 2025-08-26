@@ -15,7 +15,7 @@
   html,
   body,
   #root {
-    @apply font-default h-full bg-blue-900 text-zinc-800 antialiased select-none;
+    @apply font-default h-full bg-blue-900 text-zinc-800 antialiased select-none dark:bg-slate-900 dark:text-gray-100;
   }
 }
 
@@ -30,30 +30,29 @@
 }
 
 @layer utilities {
-  .scroll-hide::-webkit-scrollbar {
-    display: none;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
   .glass-bg {
-    backdrop-filter: blur(24px); /* Matches backdrop-blur-xl */
-    -webkit-backdrop-filter: blur(24px); /* For Safari */
+    @apply backdrop-blur-xl;
     background: radial-gradient(
       circle at 100% 0px,
       rgba(255, 255, 255, 0.85) 0px,
-      rgba(245, 245, 245, 0.13) 183%
+      rgba(245, 245, 245, 0.341) 183%
     );
     background-color: rgba(0, 0, 0, 0);
   }
-  .glass-bg-secondary {
-    backdrop-filter: blur(14px); /* Matches backdrop-blur-xl */
-    -webkit-backdrop-filter: blur(14px); /* For Safari */
-    background: radial-gradient(
-      circle at 100% 0px,
-      rgba(255, 255, 255, 0.85) 0px,
-      rgba(245, 245, 245, 0.13) 183%
-    );
-    background-color: rgba(0, 0, 0, 0);
+
+  .shadow-card {
+    @apply shadow-[10px_20px_20px] shadow-black/15 dark:shadow-black/50;
+  }
+  @media (prefers-color-scheme: dark) {
+    .glass-bg {
+      @apply backdrop-blur-xl;
+      background: radial-gradient(
+        circle at 100% 0px,
+        rgba(17, 24, 39, 0.85) 0px,
+        rgba(31, 41, 55, 0.34) 183%
+      );
+      background-color: rgba(0, 0, 0, 0);
+    }
   }
   .shadow-morph {
     box-shadow:

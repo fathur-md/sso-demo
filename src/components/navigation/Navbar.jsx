@@ -6,30 +6,30 @@ export const Navbar = ({ setActiveContent }) => {
 
   return (
     <div className="fixed inset-x-0 top-0 z-50 lg:hidden">
-      <div className="flex h-12 items-center justify-between gap-2 bg-white/75 px-4 backdrop-blur-xl">
+      <div className="glass-bg flex h-11 items-center justify-between gap-2 px-4">
         <div>
           <img
             src="https://skalastreskerja.mercu.id/wp-content/uploads/2020/10/logonoback.png"
             alt=""
-            className="h-8 w-auto"
+            className="h-6 w-auto"
           />
         </div>
         <div className="flex items-center gap-2">
           <button
             onClick={() => setActiveContent("dashboard")}
-            className="rounded-lg bg-blue-900 p-2 px-3 text-sm text-white"
+            className="rounded-lg bg-blue-900 p-1 px-3 text-sm text-white"
           >
             Dashboard
           </button>
           <button
             onClick={() => setActiveContent("reset-password")}
-            className="rounded-lg bg-blue-900 p-2 px-3 text-sm text-white"
+            className="rounded-lg bg-blue-900 p-1 px-3 text-sm text-white"
           >
             Reset Password
           </button>
           <button
             onClick={logout}
-            className="rounded-lg bg-red-700 p-2 px-3 text-sm text-white"
+            className="rounded-lg bg-red-700 p-1 px-3 text-sm text-white"
           >
             logout
           </button>

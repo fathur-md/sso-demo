@@ -15,7 +15,9 @@ export const DashboardLayout = () => {
 
   return (
     <>
-      <MainBg />
+      <div className="fixed inset-0">
+        <MainBg />
+      </div>
       <Navbar setActiveContent={setActiveContent} />
       <div className="relative z-10 grid gap-4 pt-12 lg:grid-cols-[14rem_1fr] lg:p-4">
         <Sidebar

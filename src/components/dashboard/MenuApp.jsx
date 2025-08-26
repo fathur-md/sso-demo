@@ -71,8 +71,8 @@ export const MenuApp = () => {
 
 const MenuItem = ({ Icon, title, img }) => {
   return (
-    <div className="flex h-full items-center justify-start gap-4 rounded-lg bg-gray-100 px-3 py-4 backdrop-blur-xl">
-      <div className="color flex size-12 items-center justify-center text-blue-900">
+    <div className="glass-bg flex h-full cursor-pointer items-center justify-start gap-4 rounded-lg px-3 py-4 backdrop-blur-xl transition-all hover:scale-[102%] active:scale-100">
+      <div className="color flex size-12 items-center justify-center text-blue-900 dark:text-blue-300">
         {Icon ? (
           <Icon className="size-10" />
         ) : img ? (
@@ -86,7 +86,7 @@ const MenuItem = ({ Icon, title, img }) => {
         )}
       </div>
       <div>
-        <span className="font-semibold text-blue-900">{title}</span>
+        <span className="font-semibold">{title}</span>
       </div>
     </div>
   );

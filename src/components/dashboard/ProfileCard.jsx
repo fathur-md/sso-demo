@@ -4,7 +4,7 @@ import { GraduationCap } from "lucide-react";
 
 export const ProfileCard = ({ user, data }) => {
   return (
-    <div className="px-2 hidden">
+    <div className="px-2">
       <div className="max-w-sm overflow-hidden rounded-lg border border-gray-600/30">
         <div className="flex items-center justify-center gap-2 bg-blue-900 px-3 py-2">
           <GraduationCap className="size-8 stroke-gray-200" />
