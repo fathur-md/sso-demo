@@ -68,7 +68,7 @@ export const LoginForm = ({ onLogin }) => {
           </div>
         </div>
       </Transition>
-      <form onSubmit={handleSubmit} className="space-y-4 text-sm">
+      <form onSubmit={handleSubmit} className="space-y-4 text-sm text-zinc-800">
         <div className="relative">
           <User className="absolute top-1/2 left-3 size-5 -translate-y-1/2 text-gray-500" />
           <input
