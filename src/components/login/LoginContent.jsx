@@ -4,7 +4,7 @@ import { InfoIcon } from "lucide-react";
 
 export const LoginContent = ({ data }) => {
   return (
-    <div className="relative z-10 order-1 bg-blue-900 lg:order-2">
+    <div className="relative z-10 order-1 bg-blue-900 lg:order-2 dark:bg-slate-900">
       <div className="flex min-h-screen items-center overflow-scroll overflow-y-scroll lg:sticky! lg:top-0!">
         <div className="flex h-full w-full items-center justify-center p-4">
           <div className="w-full max-w-sm p-4 pb-20 lg:px-6 lg:pb-0">

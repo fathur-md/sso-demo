@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 
 export const NewsHeader = () => {
   return (
-    <div className="sticky top-0 z-20 bg-blue-900 p-4 lg:py-8">
+    <div className="sticky top-0 z-20 p-4 lg:py-8">
       <motion.div
         layoutId="card-header-bg"
         className="rounded-lg bg-white/75 p-3 backdrop-blur-lg"
